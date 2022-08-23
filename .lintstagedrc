@@ -1,0 +1,4 @@
+{
+  "./apps/**/*.{ts,tsx,less,css}": "pretty-quick --staged",
+  "./packages/**/*.{ts,tsx,less,css}": "pretty-quick --staged"
+}

@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "scripts": {
+    "build:pkg": "pnpm run prepare -r",
+    "prepare": "husky install"
+  },
+  "packageManager": "pnpm@7.0.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1",
+    "pretty-quick": "3.1.3",
+    "turbo": "^1.1.2",
+    "lint-staged": "10.2.11",
+    "husky": "7.0.1"
+  },
+  "turbo": {
+    "npmClient": "pnpm",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**",
+          ".umi/**"
+        ]
+      },
+      "deploy": {
+        "dependsOn": [
+          "build"
+        ]
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+  }
+}
